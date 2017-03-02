@@ -104,12 +104,28 @@ app.vhost.com " @ savant`
 dokku config:set APP DOKKU_NGINX_PORT=80 DOKKU_PROXY_PORT_MAP=http:80:5000
 `
 
-* Configurar um vhost
+* **Configurar um vhost**
 `dokku domains:add-global domain_here`
 
-* Re-enable vhosts for your app
+* **Re-enable vhosts for your app**
 ( http://dokku.viewdocs.io/dokku/configuration/domains/ )
 `dokku domains:enable APP`
+
+* **Server < 1 GB RAM**
+* http://dokku.viewdocs.io/dokku/getting-started/advanced-installation/#vms-with-less-than-1gb-of-memory
+
+Run on server::
+
+    cd /var
+    touch swap.img
+    chmod 600 swap.img
+
+    dd if=/dev/zero of=/var/swap.img bs=1024k count=1000
+    mkswap /var/swap.img
+    swapon /var/swap.img
+    free
+
+    echo "/var/swap.img    none    swap    sw    0    0" >> /etc/fstab
 
 **Configurar AmazonS3**
 
