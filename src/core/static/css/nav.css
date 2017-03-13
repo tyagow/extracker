@@ -49,12 +49,7 @@
     /*background-color: #fff;*/
     /*padding-top: 35px;*/
 /*}*/
-/*.links {*/
-    /*!*color: var(--branco) !important;*!*/
-    /*color: #fff !important;*/
-    /*font-weight: 900;*/
-    /*margin-right: 10px;*/
-/*}*/
-/*.menu-user {*/
-    /*background-color: var(--nav-bg) !important;*/
-/*}*/
+.links {
+    margin-right: 10px;
+    margin-left: 10px;
+}
