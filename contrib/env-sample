@@ -7,3 +7,12 @@ AWS_SECRET_ACCESS_KEY=CONFIGURAR
 AWS_STORAGE_BUCKET_NAME=CONFIGURAR
 FACEBOOK_BOT_ACCESS_TOKEN=
 FACEBOOK_PAGE_ID=
+# alias dokku='ssh dokku@'
+# dokku run tety python manage.py migrate
+# dokku config:set tety
+# ssh root@
+# DEBUG=False ma collectstatic
+# devdokku run tety python manage.py loaddata
+# ./manage.py loaddata src/fixtures/users.json
+# ./manage.py  dumpdata auth.User --indent=2 > src/fixtures/user.json
+# ../../manage.py makemessages -l es

@@ -9,22 +9,24 @@
 {% load i18n %}
 {% load bootstrap3 %}
 {% block content %}
-    <div class="container">
-        <div class="col-md-6 offset-md-3 col-sm-8">
-            <div class="card card-form my-5">
-                <div class="card-block">
-                    <h2 class="card-title">{{ title }}</h2>
-                    <hr class="hr-titulo">
-                    <form method="post">
-                        {% csrf_token %}
-                        {% bootstrap_form form layout="vertical" %}
-                        <div class="footer-form">
-                            <button type="submit" class=" btn btn-outline-primary ">{{ button_text }}</button>
-                        </div>
-                    </form>
-                    {% block footer_form %}{% endblock %}
+    <section class="section-single">
+        <div class="container">
+            <div class="col-md-6 offset-md-3 col-sm-8">
+                <div class="card card-form">
+                    <div class="card-block">
+                        <h2 class="card-title">{{ title }}</h2>
+                        <hr class="hr-titulo">
+                        <form method="post">
+                            {% csrf_token %}
+                            {% bootstrap_form form layout="vertical" %}
+                            <div class="footer-form">
+                                <button type="submit" class=" btn btn-outline-primary ">{{ button_text }}</button>
+                            </div>
+                        </form>
+                        {% block footer_form %}{% endblock %}
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

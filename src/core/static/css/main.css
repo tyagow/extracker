@@ -61,6 +61,8 @@ body {
     border-bottom: 0px !important;
     background-color: var(--card-header-bg)!important;
 }
+.card-form {
+}
 .hr-titulo {
     border-top: 1px solid var(--hr-titulo-color);
     width: 100%;
@@ -105,6 +107,7 @@ body {
 .footer-form {
     text-align: center;
 }
+
 /* */
 /* Final Widgets */
 
@@ -210,20 +213,14 @@ p {
 section {
     padding: 70px 0;
 }
-
+.section-single {
+    padding-top: 100px !important;
+    padding-bottom: 60px !important;
+}
 aside {
     padding: 45px 0;
 }
 
-footer {
-    padding: 45px;
-    padding-top: 40px;
-    background-color: #e0e0e3;
-}
-
-footer h4, footer h6 {
-    color:#fff;
-}
 
 .navbar-default {
     border-color: rgba(35,35,35,.05);

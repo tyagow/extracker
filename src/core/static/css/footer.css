@@ -14,3 +14,13 @@
     /*line-height: 60px;*/
     /*background-color: #f5f5f5;*/
 }
+
+footer {
+    padding: 45px;
+    padding-top: 40px;
+    background-color: #e0e0e3;
+}
+
+footer h4, footer h6 {
+    color:#fff;
+}

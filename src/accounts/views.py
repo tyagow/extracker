@@ -81,4 +81,4 @@ def register_view(request):
         "title": title,
         'button_text': title
     }
-    return render(request, "widgets/form.html", context)
+    return render(request, "registration/registration_form.html", context)
