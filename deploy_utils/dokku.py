@@ -1,6 +1,6 @@
 import os
 
-import sys, getopt
+import sys
 from decouple import config
 
 
@@ -26,38 +26,61 @@ def main(argv):
     :return:
     """
     disable_static = False
-    app_name_dokku = 'django-base'
+    app_name_dokku = config('DOKKU_APP_NAME', 'dokku_app_name_not_configured')
     test = False
-    server_ip = config('SERVER_IP', '104.236.104.21')
-    # os.system('ssh dokku@104.236.104.21  config facebot')
+    server_ip = config('SERVER_IP', 'server_ip_not_configured')
     to_server = ''
-    try:
-        opts, args = getopt.getopt(argv, "hasdhoststtcstest:",
-                                   ['cs', 'test'])
-    except getopt.GetoptError:
-        print('dokku.py -cs <config:set>')
-        sys.exit(2)
 
-    for opt, arg in opts:
-        if opt == '-h':
-            print('dokku.py -cs <config:set>')
-            sys.exit()
-        elif opt in ("-cs", "--config_set"):
-            if len(arg) > 0:
-                to_server = arg
-            else:
-                print('dokku.py -cs <Variavel>:<Valor> <Variavel>:<Valor> ...\nExemplo dokku.py -cs DEBUG:FALSE')
-                sys.exit()
-        elif opt in ("-t", "--test"):
-            test = True
+    import argparse
 
-    if test:
-        print('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip, app_name=app_name_dokku,args=to_server))
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-cs', '--config_set')
+    args = parser.parse_args()
+
+    if args.config_set:
+        to_server = args.config_set
+
+    if args.test:
+        print('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip, app_name=app_name_dokku, args=to_server))
     else:
         pass
             # os.system('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip,
             #                                                                app_name=app_name_dokku,
             #                                                                args=to_server))
+
+    print("~ cs: {}".format(args.config_set))
+    #
+    # try:
+    #     opts, args = getopt.getopt(argv, "hasdhoststtcstest:",
+    #                                ['cs', 'test'])
+    # except getopt.GetoptError:
+    #     print('dokku.py -cs <config:set>')
+    #     sys.exit(2)
+    #
+    # print(argv)
+    # for opt, arg in opts:
+    #     print(opt, arg)
+    #     if opt == '-h':
+    #         print('dokku.py -cs <config:set>')
+    #         sys.exit()
+    #     elif opt in ("-cs", "--config_set"):
+    #         if len(arg) > 0:
+    #             to_server = arg
+    #         else:
+    #             print('dokku.py -cs <Variavel>:<Valor> <Variavel>:<Valor> ...\nExemplo dokku.py -cs DEBUG:FALSE')
+    #             sys.exit()
+    #
+    #     if opt in ("-t", "--test"):
+    #         test = True
+    #
+    # if test:
+    #     print('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip, app_name=app_name_dokku,args=to_server))
+    # else:
+    #     pass
+    #         # os.system('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip,
+    #         #                                                                app_name=app_name_dokku,
+    #         #                                                                args=to_server))
+
 
 if __name__ == "__main__":
     main(sys.argv[1:])
