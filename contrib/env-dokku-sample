@@ -1,0 +1,2 @@
+DOKKU_APP_NAME=app_name_not_configured
+SERVER_IP=server_ip_not_configured

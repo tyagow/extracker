@@ -20,7 +20,8 @@ Quickstart
 2. Crie um virutalenv com o Python 3.5
 3. Ative o Virtualenv.
 4. Instale as dependencias.
-5. Configure a instancia com o .env
+5. Configure as variaveis sensiveis do projeto com o .env
+5. Configure as variaveis referentes ao dokku no arquivo deploy_utlis/.env
 6. Migre seus modelos para o Banco de Dados
 7. Roda o collectstatic para configurar arquivos staticos
 8. Execute os testes.
@@ -33,6 +34,7 @@ Digite no terminal::
     source .venv/bin/activate
     pip install -r requirements.txt
     cp contrib/env-sample .env
+    cp contrib/env-d0kku-sample deploy_utlis/.env
     python manage.py collectstatic
     python manage.py migrate
     python manage.py test

@@ -6,49 +6,37 @@ from decouple import config
 
 def main(argv):
     """
-
     :param argv:
-    -a --app_dokku  = <app name in dokku>
-    -s --server_ip
-    -h --allowed_hosts
-    -d --disable_collectstatic
-    # dokku run reclamaparaguai python manage.py migrate
-    # dokku config:set reclamaparaguai
-    # ssh root@162.243.252.146
-    # DEBUG=False ma collectstatic
-    # devdokku run reclamaparaguai python manage.py loaddata src/reclamacoes/fixtures/reclamacoes.json
-    # http://reclamaparaguai.66.175.216.177.xip.io - test server
-    # ./manage.py loaddata src/core/fixtures/empresas.json
-    # ./manage.py loaddata src/reclamacoes/fixtures/reclamacoes.json
-    # ./manage.py loaddata src/fixtures/users.json
-    # ./manage.py  dumpdata auth.User --indent=2 > user2.json
-    # ../../manage.py makemessages -l es
-    :return:
     """
     disable_static = False
-    app_name_dokku = config('DOKKU_APP_NAME', 'dokku_app_name_not_configured')
+    app_name_dokku = config('DOKKU_APP_NAME', default='dokku_app_name_not_configured')
     test = False
-    server_ip = config('SERVER_IP', 'server_ip_not_configured')
+    server_ip = config('SERVER_IP', default='server_ip_not_configured')
     to_server = ''
 
     import argparse
 
     parser = argparse.ArgumentParser()
     parser.add_argument('-cs', '--config_set')
+    parser.add_argument('-m', '--migrate')
+    parser.add_argument('-t', '--test', action="store_true")
     args = parser.parse_args()
 
     if args.config_set:
-        to_server = args.config_set
+        to_server = ' config:set {app_name} {args}'.format(app_name=app_name_dokku, args=args.config_set)
+    elif args.migrate:
+        to_server = ' run {app_name} python manage.py migrate '.format(app_name=app_name_dokku)
 
     if args.test:
-        print('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip, app_name=app_name_dokku, args=to_server))
+        print('ssh dokku@{ip} {args}'.format(ip=server_ip, args=to_server))
     else:
-        pass
+        print('[SERVER]: ssh dokku@{ip} {args}'.format(ip=server_ip, args=to_server))
+
             # os.system('ssh dokku@{ip} config:set {app_name} {args}'.format(ip=server_ip,
             #                                                                app_name=app_name_dokku,
             #                                                                args=to_server))
 
-    print("~ cs: {}".format(args.config_set))
+    # print("~ cs: {}".format(args.config_set))
     #
     # try:
     #     opts, args = getopt.getopt(argv, "hasdhoststtcstest:",
