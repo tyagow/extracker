@@ -144,7 +144,6 @@ Solution
  sudo apt-get install ruby2.1-dev
 
 .. _add_ssh:
-
 Add ssh-key to dokku
 ---------------------
 
