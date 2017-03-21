@@ -12,6 +12,7 @@ Welcome to Django Base's documentation!
    readme
    installation
    usage
+   deploy
    contributing
    authors
    history
