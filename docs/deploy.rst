@@ -47,7 +47,8 @@ Digite no terminal ::
 
 * http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
-**Dokku**
+Dokku
+~~~~~
 * Change PORT
 `
 (não recomendado, se configurar na porta 80 só poderei ter 1 serviço (app) )
@@ -83,7 +84,8 @@ Run on server::
 
     echo "/var/swap.img    none    swap    sw    0    0" >> /etc/fstab
 
-**Configurar AmazonS3**
+Configurar AmazonS3
+~~~~~~~~~~~~~~~~~~~
 
 * https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
 
