@@ -4,3 +4,9 @@ machine:
 dependencies:
   pre:
   - cp contrib/env-sample .env
+deployment:
+  production:
+    branch: production
+    commands:
+      - git remote add deploy dokku@104.236.104.21:django-base
+      - git push deploy master
