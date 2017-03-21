@@ -102,7 +102,7 @@ Travis-ci Automatic Deploy to Dokku
 4. Login to travis
 5. Encrypt new ssh key (private) with travis and copy the command to decrypt in terminal
 6. Edit .travis.yml
-7. add ssh-key to dokku server (go to Add ssh-key to dokku section)
+7. add ssh-key to dokku server (go to :ref:`add-ssh` section)
 
 http://tannguyen.org/2017/02/set-up-hugo-dokku-and-travis/
 
@@ -126,6 +126,7 @@ Terminal::
           - git remote add deploy <git-remote>
           - git push deploy
 
+
 Errors:
 1. installing travis via `sudo gem install travis`
 
@@ -142,13 +143,13 @@ Solution
  sudo ruby-switch --set ruby2.1
  sudo apt-get install ruby2.1-dev
 
+.. _add_ssh
 
 Add ssh-key to dokku
 ---------------------
 
 1. Create a ssh-key
 2. send ssh-key to server
-
 
 Terminal::
 
