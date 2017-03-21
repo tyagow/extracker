@@ -107,19 +107,26 @@ Terminal::
     $ ssh-keygen -t rsa
     $ cp ~/.ssh/<ssh-key>.pub ./deploy_utils/deploy_key
     $ circle.yml ->
-        machine:
-          python:
-            version: 3.5.1
-        dependencies:
-          pre:
-          - cp contrib/env-sample .env
-        deployment:
-          production:
-            branch: master
-            commands:
-              - git remote add deploy dokku@<ip server>:<app dokku name>
-              - git push deploy master
-
+            machine:
+              python:
+                version: 3.5.1
+            general:
+              artifacts:
+                - "htmlcov"
+            dependencies:
+              pre:
+              - cp contrib/env-sample .env
+            test:
+              override:
+                - coverage run manage.py test
+              post:
+                - coverage html -d $CIRCLE_ARTIFACTS
+            deployment:
+              production:
+                branch: master
+                commands:
+                  - git remote add deploy dokku@<server ip>:<dokku app name>
+                  - git push deploy maste
 
 
 Travis-ci Automatic Deploy to Dokku
