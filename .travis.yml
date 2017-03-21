@@ -13,4 +13,5 @@ after_success:
   - chmod 600 deploy_utils/deploy_key # this key should have push access
   - ssh-add deploy_utils/deploy_key
   - git remote add deploy dokku@104.236.104.21:django-base
+  - echo -e "Host 104.236.104.21\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
   - git push deploy
