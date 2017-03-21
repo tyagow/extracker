@@ -91,6 +91,37 @@ Configurar AmazonS3
 * https://www.caktusgroup.com/blog/2014/11/10/Using-Amazon-S3-to-store-your-Django-sites-static-and-media-files/
 
 
+Circle-ci Automatic Deploy to Dokku
+-----------------------------------
+
+
+1. Generate new ssh-key without password - Give a name to the file.
+2. Copy new ssh-key.pub to your project (you must be in your root project)
+3. Add ssh-key private to circle-ci in circle-ci website
+4. Edit circle.yml
+5. add ssh-key to dokku server (go to :ref:`add-ssh` section)
+
+
+Terminal::
+
+    $ ssh-keygen -t rsa
+    $ cp ~/.ssh/<ssh-key>.pub ./deploy_utils/deploy_key
+    $ circle.yml ->
+      ``machine:
+          python:
+            version: 3.5.1
+        dependencies:
+          pre:
+          - cp contrib/env-sample .env
+        deployment:
+          production:
+            branch: master
+            commands:
+              - git remote add deploy dokku@<ip server>:<app dokku name>
+              - git push deploy master``
+
+
+
 Travis-ci Automatic Deploy to Dokku
 -----------------------------------
 
