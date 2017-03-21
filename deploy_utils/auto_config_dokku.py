@@ -19,7 +19,7 @@ def main(argv):
     app_name_dokku = 'tety'
     test = False
     server_ip = config('SERVER_IP', '104.236.104.21')
-    allowed_hosts_target = 'tety.104.236.104.21.xip.io'
+    allowed_hosts_target = 'django-base.104.236.104.21.xip.io'
     # os.system('ssh dokku@104.236.104.21  config facebot')
     to_server = ''
     try:
@@ -61,7 +61,7 @@ def main(argv):
         elif opt in ("-t", "--test"):
             test = True
 
-    with open('.env') as file:
+    with open('../.env') as file:
         for line in file:
 
             if not line[:1] == '#':

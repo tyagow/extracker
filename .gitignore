@@ -10,3 +10,4 @@ media/
 .coverage
 htmlcov
 .coveragerc
+deploy_utils/deploy_key
