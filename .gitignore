@@ -7,7 +7,5 @@ mediafiles/
 /staticfiles
 media/
 .env
-.coverage
 htmlcov
-.coveragerc
 deploy_utils/deploy_key
