@@ -41,6 +41,7 @@ Digite no terminal ::
 
 .. note:: * Depois do primeiro deploy feito basta um comando para o deploy:
             ``git push dokku master``
+
             * Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
             ``ssh dokku@<your.ip.address> run <app-name> python manage.py migrate``
 
