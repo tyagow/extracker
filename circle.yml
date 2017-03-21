@@ -1,0 +1,3 @@
+dependencies:
+  pre:
+  - cp contrib/env-sample .env
