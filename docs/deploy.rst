@@ -174,9 +174,9 @@ Solution
  sudo ruby-switch --set ruby2.1
  sudo apt-get install ruby2.1-dev
 
-.. _add_ssh:
+
 Add ssh-key to dokku
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
 1. Create a ssh-key
 2. send ssh-key to server
