@@ -40,10 +40,9 @@ Digite no terminal ::
 
 
 .. note:: * Depois do primeiro deploy feito basta um comando para o deploy:
-            `git push dokku master`
-
+            ``git push dokku master``
             * Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
-            `ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
+            ``ssh dokku@<your.ip.address> run <app-name> python manage.py migrate``
 
 * http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
@@ -63,11 +62,11 @@ dokku config:set APP DOKKU_NGINX_PORT=80 DOKKU_PROXY_PORT_MAP=http:80:5000
 `
 
 * **Configurar um vhost**
-`dokku domains:add-global domain_here`
+``dokku domains:add-global domain_here``
 
 * **Re-enable vhosts for your app**
 ( http://dokku.viewdocs.io/dokku/configuration/domains/ )
-`dokku domains:enable APP`
+``dokku domains:enable APP``
 
 * **Server < 1 GB RAM**
 * http://dokku.viewdocs.io/dokku/getting-started/advanced-installation/#vms-with-less-than-1gb-of-memory
@@ -127,6 +126,7 @@ Terminal::
 
 
 Errors:
+~~~~~~
 1. installing travis via `sudo gem install travis`
 
     ERROR:  Error installing travis:
