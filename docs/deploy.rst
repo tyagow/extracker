@@ -10,6 +10,7 @@ Travis-ci Automatic Deploy to Dokku
 6. Edit .travis.yml
 7. add ssh-key to dokku server (go to Add ssh-key to dokku section)
 
+http://tannguyen.org/2017/02/set-up-hugo-dokku-and-travis/
 
 Terminal::
 
