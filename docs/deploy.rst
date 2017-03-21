@@ -99,7 +99,7 @@ Circle-ci Automatic Deploy to Dokku
 2. Copy new ssh-key.pub to your project (you must be in your root project)
 3. Add ssh-key private to circle-ci in circle-ci website
 4. Edit circle.yml
-5. add ssh-key to dokku server (go to :ref:`add-ssh` section)
+5. add ssh-key to dokku server (go to :ref:`add-ssh-to-dokku` section)
 
 
 Terminal::
