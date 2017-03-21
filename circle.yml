@@ -1,9 +1,17 @@
 machine:
   python:
     version: 3.5.1
+general:
+  artifacts:
+    - "htmlcov"
 dependencies:
   pre:
   - cp contrib/env-sample .env
+test:
+  override:
+    - coverage run manage.py test
+  post:
+    - coverage html -d $CIRCLE_ARTIFACTS
 deployment:
   production:
     branch: master
