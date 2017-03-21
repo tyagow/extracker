@@ -39,15 +39,11 @@ Digite no terminal ::
     (local) DEBUG=False python manage.py collectstatic
 
 
-**NOTES**
+.. note:: * Depois do primeiro deploy feito basta um comando para o deploy:
+            `git push dokku master`
 
-* Depois do primeiro deploy feito basta um comando para o deploy:
-
-`git push dokku master`
-
-* Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
-
-`ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
+            * Não esquecer de migrar/atualizar o banco de dados sempre que alterar um modelo:
+            `ssh dokku@<your.ip.address> run <app-name> python manage.py migrate`
 
 * http://dokku.viewdocs.io/dokku/deployment/application-deployment/
 
@@ -145,7 +141,7 @@ Solution
 
 .. _add_ssh:
 Add ssh-key to dokku
----------------------
+~~~~~~~~~~~~~~~~~~~~
 
 1. Create a ssh-key
 2. send ssh-key to server
