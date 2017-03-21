@@ -107,18 +107,18 @@ Terminal::
     $ ssh-keygen -t rsa
     $ cp ~/.ssh/<ssh-key>.pub ./deploy_utils/deploy_key
     $ circle.yml ->
-      ``machine:``
-        ``python:``
-          ``version: 3.5.1``
-      ``dependencies:``
-        ``pre:``
-        ``- cp contrib/env-sample .env``
-      ``deployment:``
-        ``production:``
-          ``branch: master``
-          ``commands:``
-            ``- git remote add deploy dokku@<ip server>:<app dokku name>``
-            ``- git push deploy master``
+        machine:
+          python:
+            version: 3.5.1
+        dependencies:
+          pre:
+          - cp contrib/env-sample .env
+        deployment:
+          production:
+            branch: master
+            commands:
+              - git remote add deploy dokku@<ip server>:<app dokku name>
+              - git push deploy master
 
 
 
